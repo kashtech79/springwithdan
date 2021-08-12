@@ -17,7 +17,9 @@ public class Link {
     @Id
     @GeneratedValue
     private Long id;
+    @NotNull
     private String title;
+    @NotNull
     private String url;
 
     //comments
