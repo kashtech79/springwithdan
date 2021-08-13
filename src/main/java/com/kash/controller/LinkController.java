@@ -2,13 +2,14 @@ package com.kash.controller;
 
 import com.kash.domain.Link;
 import com.kash.repository.LinkRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/links")
+@Controller
 public class LinkController {
 
     private LinkRepository linkRepository;
@@ -17,6 +18,11 @@ public class LinkController {
         this.linkRepository = linkRepository;
     }
 
+    @GetMapping("/foo")
+    public String foo(Model model){
+        model.addAttribute("pageTitle", "this page is foo");
+        return "foo";
+    }
 
     // list
     @GetMapping("/")
